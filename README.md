@@ -71,8 +71,11 @@ version: '3'
 services:
     dhcp:
         image: networkboot/dhcpd
-        #environment:
-        #  - DHCPv6
+        environment:
+        # default
+          - DHCPD_PROTOCOL=4
+        # if you want to use DHCPv6
+        # - DHCPD_PROTOCOL=6
         volumes:
           - ./data:/data
         network_mode: host
