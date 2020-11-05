@@ -62,6 +62,23 @@ addition to the normal DHCP server package.  Other than that it behaves in
 exactly the same way as the `:latest` tag.  Utility build and run scripts
 have also been added to work with this variant.
 
+docker-compose
+--------------
+
+```
+version: '3'
+
+services:
+    dhcp:
+        image: networkboot/dhcpd
+        #environment:
+        #  - DHCPv6
+        volumes:
+          - ./data:/data
+        network_mode: host
+        restart: unless-stopped
+```
+
 Acknowledgements
 ================
 
